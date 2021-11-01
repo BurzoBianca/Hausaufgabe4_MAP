@@ -1,3 +1,5 @@
+package Classes;
+
 import java.util.List;
 
 public abstract class Person {
@@ -24,5 +26,10 @@ public abstract class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Person : " + "Vorname = " + firstName + ", Name = " + lastName ;
     }
 }

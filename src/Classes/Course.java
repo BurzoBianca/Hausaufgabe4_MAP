@@ -1,3 +1,6 @@
+package Classes;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
@@ -5,14 +8,14 @@ public class Course {
     public String name;
     public Person teacher;
     public int maxEnrollement;
-    public List<Student> studentEnrolled;
+    public List<Student> studentsEnrolled;
     public int credits;
 
-    public Course(String name, Person teacher, int maxEnrollement, List<Student> studentEnrolled, int credits) {
+    public Course(String name, Person teacher, int maxEnrollement, int credits) {
         this.name = name;
         this.teacher = teacher;
         this.maxEnrollement = maxEnrollement;
-        this.studentEnrolled = studentEnrolled;
+        this.studentsEnrolled = new ArrayList<Student>();
         this.credits = credits;
     }
 
@@ -40,12 +43,12 @@ public class Course {
         this.maxEnrollement = maxEnrollement;
     }
 
-    public List<Student> getStudentEnrolled() {
-        return studentEnrolled;
+    public List<Student> getStudentsEnrolled() {
+        return studentsEnrolled;
     }
 
-    public void setStudentEnrolled(List<Student> studentEnrolled) {
-        this.studentEnrolled = studentEnrolled;
+    public void setStudentsEnrolled(List<Student> studentsEnrolled) {
+        this.studentsEnrolled = studentsEnrolled;
     }
 
     public int getCredits() {
@@ -55,4 +58,11 @@ public class Course {
     public void setCredits(int credits) {
         this.credits = credits;
     }
+
+    @Override
+    public String toString() {
+        return "Kurs : " + "Name Kurs = " + name + ", Professor = " + teacher + ", maxPlatze =" + maxEnrollement + ", eingeschriebene Studenten = " + studentsEnrolled + ", ECTS = " + credits ;
+    }
 }
+
+
