@@ -53,11 +53,12 @@ public class RegistrationSystem {
         return CFP;
     }
 
-    public void retrieveStudentsEnrolledForACourse(Course course) {
+    public List<Student> retrieveStudentsEnrolledForACourse(Course course) {
         if (courses.getAll().contains(course)) {
-            course.getStudentsEnrolled();
+           return course.getStudentsEnrolled();
         } else
             System.out.print("Dieser Kurs existiert nicht");
+        return null;
     }
 
     public List<Course> getAllCourses() {

@@ -19,6 +19,19 @@ public class Course {
         this.credits = credits;
     }
 
+    public void addStudent(Student student){
+
+        if(studentsEnrolled.contains(student)){
+            System.out.print("Ist schon an den Kurs eingeschrieben");
+        }
+        else
+        if(studentsEnrolled.size() == maxEnrollement){
+            System.out.print("Kurs hat keine freie Platze mehr");
+        }
+        studentsEnrolled.add(student);
+    }
+
+
     public String getName() {
         return name;
     }
@@ -61,7 +74,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Kurs : " + "Name Kurs = " + name + ", Professor = " + teacher + ", maxPlatze =" + maxEnrollement + ", eingeschriebene Studenten = " + studentsEnrolled + ", ECTS = " + credits ;
+        return "Kurs : " + "Name Kurs = " + name + ", Professor = " + teacher + ", maxPlatze =" + maxEnrollement + ", eingeschriebene Studenten = " + studentsEnrolled + ", ECTS = " + credits + "\n" ;
     }
 }
 
