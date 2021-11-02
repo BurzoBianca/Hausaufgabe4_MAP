@@ -19,6 +19,7 @@ public class Course {
         this.credits = credits;
     }
 
+    //adaug un student anume la lista de studenti inscrisi la cursuri
     public void addStudent(Student student){
 
         if(studentsEnrolled.contains(student)){

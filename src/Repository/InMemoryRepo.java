@@ -12,6 +12,7 @@ public abstract class InMemoryRepo <T> implements ICrudRepo<T> {
         this.repoList = new ArrayList<>();
     }
 
+    //adaug "objectul" in lista
     @Override
     public T create(T obj) {
 
@@ -19,11 +20,13 @@ public abstract class InMemoryRepo <T> implements ICrudRepo<T> {
         return obj;
     }
 
+    //returnez toate "objectele" din repo
     @Override
     public List<T> getAll() {
         return this.repoList;
     }
 
+    //sterg un "object" din lista
     @Override
     public void delete(T obj) {
         this.repoList.remove(obj);

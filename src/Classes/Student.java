@@ -22,6 +22,8 @@ public class Student extends Person {
         this.enrolledCourses = new ArrayList<>();
     }
 
+    //adaug studentul la lista de studenti din repo-ul pt cursuri
+    // adaug nr de credite al cursului la totalul de credite
     public void addCourse(Course course) {
 
         if (enrolledCourses.contains(course)) {
@@ -42,6 +44,9 @@ public class Student extends Person {
         }
     }
 
+
+    //sterg un curs anume din lista de cursuri a studentului
+    //scad din totalul de credite nr de credite ale cursului sters
     public void removeCourse(Course course){
 
         if(!enrolledCourses.contains(course)){
@@ -55,6 +60,8 @@ public class Student extends Person {
         }
     }
 
+
+    //schimb "suma" creditelor in functie de nr creditelor pe care trebuie sa il modific pt un curs anume
     public void updateCredits(Course course, int credits){
 
         if(!enrolledCourses.contains(course)){
