@@ -11,7 +11,11 @@ public class CourseRepo extends InMemoryRepo<Course> {
         super();
     }
 
-    //editez lista de studenti a unui curs in repo
+    /**
+     * editez lista de studenti a unui curs in repo
+     * @param obj = cursul cu o noua lista de studenti
+     * @return cursul actualizat
+     */
     @Override
     public Course update(Course obj) {
 
@@ -20,7 +24,10 @@ public class CourseRepo extends InMemoryRepo<Course> {
         return cUpdate;
     }
 
-    //sterg cursul din repo
+    /**
+     * sterg cursul din repo
+     * @param obj = cursul ce trebuie sters
+     */
     @Override
     public void delete(Course obj) {
         super.delete(obj);

@@ -19,7 +19,10 @@ public class Course {
         this.credits = credits;
     }
 
-    //adaug un student anume la lista de studenti inscrisi la cursuri
+    /**
+     * adaug un student anume la lista de studenti inscrisi la cursuri
+     * @param student = noul student sau "object"
+     */
     public void addStudent(Student student){
 
         if(studentsEnrolled.contains(student)){

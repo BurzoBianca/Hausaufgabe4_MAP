@@ -12,7 +12,10 @@ public class Teacher extends Person {
         courses = new ArrayList<>();
     }
 
-    //adaug un curs anume la lista de cursuri ale profesorului
+    /**
+     * adaug un curs anume la lista de cursuri ale profesorului
+     * @param course = noul curs sau "object"
+     */
     public void addCourse(Course course){
 
         if(courses.contains(course)){
@@ -24,7 +27,10 @@ public class Teacher extends Person {
         }
     }
 
-    //sterg un curs anume din lista de cursuri ale profesorului
+    /**
+     * sterg un curs anume din lista de cursuri ale profesorului
+     * @param course = cursul sau "object-ul"
+     */
     public void removeCourse(Course course){
 
         if(!courses.contains(course)){
