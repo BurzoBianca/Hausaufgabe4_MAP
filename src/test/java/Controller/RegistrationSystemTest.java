@@ -119,3 +119,4 @@ class RegistrationSystemTest {
         assertEquals(expectedCourses,allCourses);
     }
 }
+

@@ -9,3 +9,4 @@ public interface ICrudRepo <T> {
     T update(T obj);
     void delete(T obj);
 }
+
