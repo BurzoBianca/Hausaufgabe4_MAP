@@ -6,6 +6,8 @@ import Repository.*;
 import java.util.List;
 import java.util.ArrayList;
 
+import Controller.Exception_Null;
+
 
 
 public class RegistrationSystem {
@@ -29,17 +31,17 @@ public class RegistrationSystem {
      * @param student = studentul care doreste sa se inregistreze la curs
      * @return true daca toate modificarile au fost efectuate
      */
-    public boolean register(Course course, Student student) {
+    public boolean register(Course course, Student student) throws IllegalArgumentException, Exception_Null {
 
         if (!students.getAll().contains(student)) {
 
-            System.out.print("Dieser Student existiert nicht");
-        } else {
-
+            throw new IllegalArgumentException("Dieser Student existiert nicht");
+        } else
             if (!courses.getAll().contains(course)) {
 
-                System.out.print("Dieser Kurs existiert nicht");
-            } else {
+                throw new IllegalArgumentException("Dieser Kurs existiert nicht");
+            }
+            else {
 
                 //actualizez lista de cursuri a studentului
                 student.addCourse(course);
@@ -51,9 +53,6 @@ public class RegistrationSystem {
 
                 return true;
             }
-        }
-
-        return false;
     }
 
     /**
@@ -77,12 +76,11 @@ public class RegistrationSystem {
      * @param course cursul de la care dorim sa vedem studentii inscrisi
      * @return lista de studenti
      */
-    public List<Student> retrieveStudentsEnrolledForACourse(Course course) {
+    public List<Student> retrieveStudentsEnrolledForACourse(Course course)throws IllegalArgumentException {
         if (courses.getAll().contains(course)) {
            return course.getStudentsEnrolled();
         } else
-            System.out.print("Dieser Kurs existiert nicht");
-        return null;
+            throw new IllegalArgumentException("Dieser Kurs existiert nicht");
     }
 
     /**

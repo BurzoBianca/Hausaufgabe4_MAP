@@ -1,5 +1,7 @@
 package Repository;
 
+import Controller.Exception_Null;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +41,7 @@ public abstract class InMemoryRepo <T> implements ICrudRepo<T> {
      * @param obj = "objectul" care trebuie sters
      */
     @Override
-    public void delete(T obj) {
+    public void delete(T obj) throws Exception_Null {
         this.repoList.remove(obj);
     }
 }

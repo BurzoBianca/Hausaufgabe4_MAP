@@ -1,5 +1,6 @@
 package com.company;
 
+import Controller.Exception_Null;
 import Controller.RegistrationSystem;
 import Classes.*;
 import Repository.*;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception_Null {
         TeacherRepo teacherRepo = new TeacherRepo();
         Teacher t1 = new Teacher("Carmen", "Matei");
         Teacher t2 = new Teacher("Cornelia", "Ignat");

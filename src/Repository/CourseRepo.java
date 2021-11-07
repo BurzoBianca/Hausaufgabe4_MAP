@@ -1,5 +1,7 @@
 package Repository;
 
+import Controller.Exception_Null;
+
 import Classes.Course;
 
 import java.util.Objects;
@@ -17,7 +19,10 @@ public class CourseRepo extends InMemoryRepo<Course> {
      * @return cursul actualizat
      */
     @Override
-    public Course update(Course obj) {
+    public Course update(Course obj) throws Exception_Null{
+
+        if(obj == null)
+            throw new Exception_Null("Null object!");
 
         Course cUpdate = this.repoList.stream().filter(course -> Objects.equals(course.getName(), obj.getName()) && course.getTeacher() == obj.getTeacher()).findFirst().orElseThrow();
         cUpdate.setCredits(obj.getCredits());
@@ -29,7 +34,11 @@ public class CourseRepo extends InMemoryRepo<Course> {
      * @param obj = cursul ce trebuie sters
      */
     @Override
-    public void delete(Course obj) {
+    public void delete(Course obj) throws Exception_Null{
+
+        if(obj == null)
+            throw new Exception_Null("Null id!");
+
         super.delete(obj);
     }
 }
