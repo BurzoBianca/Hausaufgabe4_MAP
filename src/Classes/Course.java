@@ -1,5 +1,8 @@
 package Classes;
 
+import Controller.Exception_MaxLCurs;
+import Controller.Exception_AlreadyExists;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,11 +29,15 @@ public class Course {
     public void addStudent(Student student){
 
         if(studentsEnrolled.contains(student)){
-            System.out.print("Ist schon an den Kurs eingeschrieben");
+            //System.out.print("Ist schon an den Kurs eingeschrieben");
+            //Hausaufgabe 4
+            throw new Exception_AlreadyExists("Ist schon an den Kurs eingeschrieben");
         }
         else
         if(studentsEnrolled.size() == maxEnrollement){
-            System.out.print("Kurs hat keine freie Platze mehr");
+            //System.out.print("Kurs hat keine freie Platze mehr");
+            //Hausaufgabe 4
+            throw new Exception_MaxLCurs("Kurs hat keine freie Platze mehr");
         }
         studentsEnrolled.add(student);
     }

@@ -31,11 +31,13 @@ public class Teacher extends Person {
      * sterg un curs anume din lista de cursuri ale profesorului
      * @param course = cursul sau "object-ul"
      */
-    public void removeCourse(Course course){
+    public void removeCourse(Course course) throws IllegalArgumentException{
 
         if(!courses.contains(course)){
 
-            System.out.print("Kurs existiert nicht in der Liste des Proffesoren");
+            //System.out.print("Kurs existiert nicht in der Liste des Proffesoren");
+            //Hausaufgabe 4
+            throw new IllegalArgumentException("Kurs existiert nicht in der Liste des Proffesoren");
         }
         else{
 

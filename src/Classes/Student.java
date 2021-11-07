@@ -1,5 +1,7 @@
 package Classes;
 
+import Controller.Exception_LimitECTS;
+
 import Classes.Course;
 import Classes.Person;
 
@@ -27,24 +29,24 @@ public class Student extends Person {
      * adaug nr de credite al cursului la totalul de credite
      * @param course = noul curs sau "object"
      */
-    public void addCourse(Course course) {
+    public void addCourse(Course course) throws Exception_LimitECTS, IllegalArgumentException{
 
         if (enrolledCourses.contains(course)) {
 
-            System.out.print("Kurs ist schon in der Liste des Studenten");
+            //System.out.print("Kurs ist schon in der Liste des Studenten");
+            //Hausaufgabe 4
+            throw new IllegalArgumentException("Kurs ist schon in der Liste des Studenten");
         }
-        else{
+        if (totalCredits + course.getCredits() <= 30) {
 
-            if (totalCredits + course.getCredits() <= 30) {
-
-                enrolledCourses.add(course);
-                totalCredits += course.getCredits();
-            }
-            else {
-
-                System.out.print("ECTS Limit wurde erreicht !");
-            }
+            enrolledCourses.add(course);
+            totalCredits += course.getCredits();
         }
+        else {
+                //System.out.print("ECTS Limit wurde erreicht !");
+                //Hausaufgabe 4
+                throw new Exception_LimitECTS("ECTS Limit wurde erreicht fur :" + this + " ! ");
+            }
     }
 
     /**
@@ -52,11 +54,13 @@ public class Student extends Person {
      * scad din totalul de credite nr de credite ale cursului sters
      * @param course = noul curs sau "object"
      */
-    public void removeCourse(Course course){
+    public void removeCourse(Course course) throws IllegalArgumentException{
 
         if(!enrolledCourses.contains(course)){
 
-            System.out.print("Kurs existiert nicht in der Liste des Studenten");
+            //System.out.print("Kurs existiert nicht in der Liste des Studenten");
+            //Hausaufgabe 4
+            throw new IllegalArgumentException("Kurs existiert nicht in der Liste der Studenten");
         }
         else {
 
@@ -70,19 +74,20 @@ public class Student extends Person {
      * @param course = noul curs sau "object"
      * @param credits = noua valoare pt credite
      */
-    public void updateCredits(Course course, int credits){
+    public void updateCredits(Course course, int credits) throws IllegalArgumentException, Exception_LimitECTS{
 
         if(!enrolledCourses.contains(course)){
 
-            System.out.print("Kurs existiert nicht in der Liste des Studenten");
+            //System.out.print("Kurs existiert nicht in der Liste des Studenten");
+            throw new IllegalArgumentException("Kurs existiert nicht in der Liste des Studenten");
         }
         else{
 
-            for(Course i : enrolledCourses){
+            for(Course actualcourse : enrolledCourses){
 
-                if(Objects.equals(i.getName(), course.getName())){
+                if(Objects.equals(actualcourse.getName(), course.getName())){
 
-                    int val = totalCredits - i.getCredits() + credits;
+                    int val = totalCredits - actualcourse.getCredits() + credits;
 
                     if(val <= 30){
 
@@ -91,11 +96,12 @@ public class Student extends Person {
                     }
                     else{
 
-                        enrolledCourses.remove(i);
-                        totalCredits -= i.getCredits();
-                        System.out.print("ECTS Limit wurde fur Student : " + this.studentId + "erreicht !");
-                        System.out.print("\n");
-                        System.out.print("Kurs wurde geloscht.");
+                        enrolledCourses.remove(actualcourse);
+                        totalCredits -= actualcourse.getCredits();
+                        //System.out.print("ECTS Limit wurde fur Student : " + this.studentId + "erreicht !");
+                        //System.out.print("\n");
+                        //System.out.print("Kurs wurde geloscht.");
+                        throw new Exception_LimitECTS("ECTS Limit wurde fur Student : " + this.studentId + "erreicht !" + "\n Kurs wurde geloscht.");
                     }
                 }
             }
