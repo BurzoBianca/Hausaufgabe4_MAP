@@ -5,12 +5,12 @@ import Controller.Exception_LimitECTS;
 import Classes.Course;
 import Classes.Person;
 
-
+import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Student extends Person {
+public class Student extends Person implements Comparable<Student> {
 
     private long studentId;
     private int totalCredits;
@@ -137,4 +137,13 @@ public class Student extends Person {
         return "Student : " + "Vorname = " + getFirstName() + ", Name = " + getLastName() + ", StudentId = " + studentId + ", Total ECTS = " + totalCredits ;
     }
 
+    /**
+     * compar 2 instante din lista de studenti dupa nume
+     * @param student1 este un alt "object" de tipul student/ alt student
+     * @return integer negativ, 0 sau integer pozitiv daca objectul comparat este mai mic, egal, sau mai mare decat celalalt
+     */
+    @Override
+    public int compareTo(Student student1) {
+        return this.getFirstName().compareTo(student1.getLastName());
+    }
 }

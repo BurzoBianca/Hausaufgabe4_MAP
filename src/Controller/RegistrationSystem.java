@@ -5,7 +5,8 @@ import Repository.*;
 
 import java.util.List;
 import java.util.ArrayList;
-
+import java.util.Collection;
+import java.util.Collections;
 import Controller.Exception_Null;
 
 
@@ -89,6 +90,26 @@ public class RegistrationSystem {
      */
     public List<Course> getAllCourses() {
         return courses.getAll();
+    }
+
+    /**
+     * Sorteaza lista de Studenti din StudentRepo dupa nume
+     * @return lista de studenti sortata
+     */
+    public  List<Student> sortStudents(){
+        List<Student> studentsList = students.getAll();
+        Collections.sort(studentsList);
+        return studentsList;
+    }
+
+    /**
+     * Sorteaza lista de cursuri din CourseRepo dupa nume
+     * @return lista de cursuri sortata
+     */
+    public List <Course> sortCourses(){
+        List<Course> courseList = courses.getAll();
+        Collections.sort(courseList);
+        return courseList;
     }
 
 }

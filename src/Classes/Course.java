@@ -3,10 +3,15 @@ package Classes;
 import Controller.Exception_MaxLCurs;
 import Controller.Exception_AlreadyExists;
 
+import java.util.Comparator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Course {
+/**
+ * implementez comparable pentru a putea folosi mai departe metode de comparare a obiectelor
+ * => creearea metodelor de sortare din RegistrationSystem
+ */
+public class Course implements Comparable<Course> {
 
     public String name;
     public Person teacher;
@@ -86,6 +91,16 @@ public class Course {
     @Override
     public String toString() {
         return "Kurs : " + "Name Kurs = " + name + ", Professor = " + teacher + ", maxPlatze =" + maxEnrollement + ", eingeschriebene Studenten = " + studentsEnrolled + ", ECTS = " + credits + "\n" ;
+    }
+
+    /**
+     * compar 2 instante din lista de cursuri dupa nume
+     * @param course1 este un alt "object" de tipul curs/ alt curs
+     * @return integer negativ, 0 sau integer pozitiv daca objectul comparat este mai mic, egal, sau mai mare decat celalalt
+     */
+    @Override
+    public int compareTo(Course course1) {
+        return this.getName().compareTo(course1.getName());
     }
 }
 
